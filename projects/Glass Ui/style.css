@@ -1,0 +1,101 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+/* Background */
+body{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a, #0ea5e9);
+    overflow:hidden;
+}
+
+/* Blurry circles */
+.bg::before,
+.bg::after{
+    content:'';
+    position:absolute;
+    border-radius:50%;
+    filter: blur(80px);
+    z-index:0;
+}
+
+.bg::before{
+    width:300px;
+    height:300px;
+    background:#22d3ee;
+    top:10%;
+    left:10%;
+}
+
+.bg::after{
+    width:350px;
+    height:350px;
+    background:#a78bfa;
+    bottom:10%;
+    right:10%;
+}
+
+/* Glass Card */
+.glass-card{
+    position:relative;
+    z-index:1;
+    width:380px;
+    padding:35px;
+    border-radius:20px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border:1px solid rgba(255,255,255,0.25);
+    box-shadow:0 8px 32px rgba(0,0,0,0.3);
+    text-align:center;
+    color:#fff;
+}
+
+/* Text */
+.title{
+    font-size:28px;
+    margin-bottom:15px;
+    text-shadow: 0 0 6px rgba(255,255,255,0.4);
+}
+
+.text{
+    font-size:15px;
+    line-height:1.6;
+    color:#e5e7eb;
+    margin-bottom:25px;
+}
+
+/* Buttons */
+.btn-group{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+}
+
+.glass-btn{
+    padding:10px 22px;
+    border-radius:30px;
+    border:none;
+    background: rgba(255,255,255,0.25);
+    color:#fff;
+    cursor:pointer;
+    backdrop-filter: blur(5px);
+    border:1px solid rgba(255,255,255,0.3);
+    transition:0.3s;
+}
+
+.glass-btn:hover{
+    background: rgba(255,255,255,0.4);
+    transform: translateY(-3px);
+}
+
+.glass-btn.outline{
+    background: transparent;
+    border:1px solid rgba(255,255,255,0.5);
+}

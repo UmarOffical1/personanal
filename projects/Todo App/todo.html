@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+    body{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,#667eea,#764ba2);
+    }
+    .todo-app{
+      background:#fff;
+      width:350px;
+      padding:20px;
+      border-radius:15px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.2);
+    }
+    .todo-app h2{
+      text-align:center;
+      margin-bottom:15px;
+    }
+    .input-box{
+      display:flex;
+      gap:8px;
+      margin-bottom:15px;
+    }
+    .input-box input{
+      flex:1;
+      padding:10px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      outline:none;
+    }
+    .input-box button{
+      padding:10px 15px;
+      border:none;
+      background:#667eea;
+      color:#fff;
+      border-radius:8px;
+      cursor:pointer;
+    }
+    ul{
+      list-style:none;
+      max-height:250px;
+      overflow-y:auto;
+    }
+    ul li{
+      background:#f2f2f2;
+      margin-bottom:8px;
+      padding:10px;
+      border-radius:8px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    ul li.completed{
+      text-decoration:line-through;
+      opacity:0.6;
+    }
+    .actions{
+      display:flex;
+      gap:8px;
+    }
+    .actions button{
+      border:none;
+      background:none;
+      cursor:pointer;
+      font-size:16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="todo-app">
+    <h2>Todo App</h2>
+    <div class="input-box">
+      <input type="text" id="todoInput" placeholder="Add a new task">
+      <button onclick="addTodo()">Add</button>
+    </div>
+    <ul id="todoList"></ul>
+  </div>
+
+  <script>
+    const input = document.getElementById('todoInput');
+    const list = document.getElementById('todoList');
+
+    function addTodo(){
+      if(input.value.trim() === '') return;
+
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <span onclick="toggleComplete(this)">${input.value}</span>
+        <div class="actions">
+          <button onclick="editTodo(this)">✏️</button>
+          <button onclick="deleteTodo(this)">🗑️</button>
+        </div>
+      `;
+      list.appendChild(li);
+      input.value = '';
+    }
+
+    function deleteTodo(btn){
+      btn.closest('li').remove();
+    }
+
+    function toggleComplete(text){
+      text.parentElement.classList.toggle('completed');
+    }
+
+    function editTodo(btn){
+      const li = btn.closest('li');
+      const span = li.querySelector('span');
+      const newText = prompt('Edit task:', span.innerText);
+      if(newText !== null && newText.trim() !== ''){
+        span.innerText = newText;
+      }
+    }
+  </script>
+
+</body>
+</html>
