@@ -9,8 +9,6 @@
 </head>
 
 <body>
-
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">Umar Raza</div>
         <ul class="nav-links">
@@ -21,88 +19,90 @@
         </ul>
     </nav>
 
-    <!-- About Section -->
     <section class="about-section">
-        <div class="container">
-            <div class="profile">
-                <img src="images/profile.jpg" alt="Umar Raza">
-            </div>
-            <div class="bio">
-                <h2>About Me</h2>
-                <p>Hi! I'm Umar Raza, a passionate Frontend Developer. I love crafting interactive and beautiful
-                    websites using HTML, CSS, and JavaScript. My goal is to turn ideas into user-friendly digital
-                    experiences.</p>
+        <div class="about-container">
 
-                <h3>My Skills</h3>
-                <div class="skills">
+            <!-- Left -->
+            <div class="about-left">
+                <div class="profile-wrap">
+                    <img src="images/profile.jpg" alt="Umar Raza">
+                </div>
+
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>
+                        Hi I'm Umar Raza, a passionate Frontend Developer. I love crafting interactive
+                        and beautiful websites using HTML, CSS, and JavaScript.
+                        My goal is to turn ideas into user-friendly digital experiences.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right -->
+            <div class="about-right">
+
+                <!-- Skills Card -->
+                <div class="about-card">
+                    <h3>My Skills</h3>
+
                     <div class="skill">
                         <span>HTML</span>
-                        <div class="skill-bar">
-                            <div data-width="95%"></div>
+                        <div class="bar">
+                            <div style="width:95%"></div>
                         </div>
                     </div>
+
                     <div class="skill">
                         <span>CSS</span>
-                        <div class="skill-bar">
-                            <div data-width="90%"></div>
+                        <div class="bar">
+                            <div style="width:90%"></div>
                         </div>
                     </div>
+
                     <div class="skill">
                         <span>JavaScript</span>
-                        <div class="skill-bar">
-                            <div data-width="80%"></div>
+                        <div class="bar">
+                            <div style="width:85%"></div>
                         </div>
                     </div>
+
                     <div class="skill">
                         <span>React</span>
-                        <div class="skill-bar">
-                            <div data-width="70%"></div>
+                        <div class="bar">
+                            <div style="width:75%"></div>
                         </div>
                     </div>
                 </div>
 
-                <h3>Fun Facts</h3>
-                <div class="counters">
-                    <div class="counter">
-                        <h4 class="count" data-target="50">0</h4>
-                        <p>Projects Completed</p>
+                <!-- Stats Card -->
+                <div class="about-card stats-grid">
+                    <div>
+                        <h4>50+</h4>
+                        <p>Projects</p>
                     </div>
-                    <div class="counter">
-                        <h4 class="count" data-target="3">0</h4>
-                        <p>Years Experience</p>
+                    <div>
+                        <h4>3+</h4>
+                        <p>Years Exp</p>
                     </div>
-                    <div class="counter">
-                        <h4 class="count" data-target="20">0</h4>
+                    <div>
+                        <h4>20+</h4>
                         <p>Clients</p>
                     </div>
                 </div>
 
-                <h3>Experience Timeline</h3>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <span>2023 - Present</span>
-                        <p>Frontend Developer at XYZ Company</p>
-                    </div>
-                    <div class="timeline-item">
-                        <span>2021 - 2023</span>
-                        <p>Junior Developer at ABC Solutions</p>
-                    </div>
-                    <div class="timeline-item">
-                        <span>2020 - 2021</span>
-                        <p>Internship at WebStart Agency</p>
-                    </div>
+                <!-- Timeline Card -->
+                <div class="about-card">
+                    <h3>Experience</h3>
+                    <ul class="timeline">
+                        <li><span>2023 - Present</span> Frontend Developer at XYZ Company</li>
+                        <li><span>2021 - 2023</span> Junior Developer at ABC Solutions</li>
+                        <li><span>2020 - 2021</span> Internship at WebStart Agency</li>
+                    </ul>
                 </div>
 
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 Umar Raza | Unique Portfolio</p>
-    </footer>
-
-    <script src="js/about.js"></script>
 </body>
 
 </html>
