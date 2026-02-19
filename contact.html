@@ -2,65 +2,131 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Umar Raza | Contact</title>
-    <link rel="stylesheet" href="css/globl.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Umar Raza | Contact</title>
+  <link rel="stylesheet" href="css/globl.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
 
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">Umar Raza</div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Umar Raza</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-    <!-- Contact Section -->
-   <section class="contact-section">
-  <div class="contact-container">
-    
-    <h2 class="contact-title">Contact Me</h2>
-    <p class="contact-subtitle">
-      Have a question or want to work together? Fill out the form below!
-    </p>
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="contact-container">
 
-    <div class="contact-card">
-      <form class="contact-form">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="4" placeholder="Your Message" required></textarea>
-        <button class="contact-btn" type="submit">Send Message</button>
-      </form>
+      <h2 class="contact-title">Contact Me</h2>
+      <p class="contact-subtitle">
+        Have a question or want to work together? Fill out the form below!
+      </p>
+
+      <div class="contact-card">
+        <form class="contact-form" id="contactForm">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea rows="4" name="message" placeholder="Your Message" required></textarea>
+          <button class="contact-btn" type="submit">Send Message</button>
+        </form>
+      </div>
     </div>
 
-  </div>
-</section>
 
+    <!-- Floating Social Icons -->
+    <!-- Floating Social Icons -->
+    <div class="social-icons">
+      <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+  </section>
 
-        <!-- Floating Social Icons -->
-        <!-- Floating Social Icons -->
+  <footer class="footer">
+    <div class="footer-container">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <h2>Umar Raza</h2>
+        <p>Frontend Developer crafting modern, responsive and interactive web experiences.</p>
+      </div>
+
+      <!-- Links -->
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Social -->
+      <div class="footer-social">
+        <h4>Connect</h4>
         <div class="social-icons">
-            <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="#"><i>in</i></a>
+          <a href="#"><i>gh</i></a>
+          <a href="#"><i>ig</i></a>
+          <a href="#"><i>fb</i></a>
         </div>
-    </section>
+      </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 Umar Raza | Unique Portfolio</p>
-    </footer>
+    </div>
 
-    <script src="js/contact.js"></script>
+    <div class="footer-bottom">
+      <p>© 2026 Umar Raza. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function () {
+      emailjs.init("sDpittntRwU0Oo1jW");   // PUBLIC KEY
+    })();
+  </script>
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const btn = document.querySelector(".contact-btn");
+      btn.innerText = "Sending...";
+      btn.disabled = true;
+
+      emailjs.sendForm(
+        "service_3k1fitj",
+        "template_hk0h304",
+        this
+      ).then(
+        function () {
+          alert("✅ Message sent successfully!");
+          document.getElementById("contactForm").reset(); // ✅ here
+          btn.innerText = "Send Message";
+          btn.disabled = false;
+        },
+        function (error) {
+          alert("❌ Failed to send message!");
+          btn.innerText = "Send Message";
+          btn.disabled = false;
+          console.log(error);
+        }
+      );
+    });
+  </script>
+
+
+  <script src="js/contact.js"></script>
 </body>
 
 </html>
